@@ -69,9 +69,10 @@ class AddThingErrorAtomicWithFile(View):
 
 class Loop(View):
     def get(self, request, *args, **kwargs):
+        i = 1
         while True:
-            time.sleep(1)
-        return HttpResponse('A price kissed me')
+            i += 1
+        return HttpResponse('A prince kissed me')
 
 
 
