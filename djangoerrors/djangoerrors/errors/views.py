@@ -4,6 +4,7 @@ from django.db import transaction
 from .models import *
 from datetime import datetime
 from django.core.files.base import ContentFile
+import time
 
 class AddThing(View):
     def get(self, request, *args, **kwargs):
@@ -67,9 +68,7 @@ class AddThingErrorAtomicWithFile(View):
 
 
 class Loop(View):
-    @transaction.atomic
     def get(self, request, *args, **kwargs):
-        import time
         while True:
             time.sleep(1)
         return HttpResponse('A price kissed me')
